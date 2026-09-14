@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h2>Register</h2>
+    <form action="/submit" method="post">
+
+        Full Name:
+        <input type="text" id="Fname" name="Fname" required><br>
+
+        Email Address:
+        <input type="email" id="EmAdd" name="EmAdd" required><br>
+
+        Username:
+        <input type="text" id="Uname" name="Uname" required><br>
+
+        Password:
+        <input type="password" id="Pwd" name="Pwd" required><br>
+        
+        Confirm Password:
+        <input type="password" id="CPwd" name="CPwd" required><br>
+
+        Phone Number:
+        <input type="tel" id="PhNo" name="PhNo"><br>
+
+        Country
+        <select id="Cntry" name="Cntry">
+            <option value="">Select Country</option>
+            <option value="PH">Philippines</option>
+            <option value="US">Japan</option>
+            <option value="MY">Finland</option>
+            <option value="JP">Korea</option>
+        </select>
+
+        <div class="chk">
+            <input type="checkbox" id="TnC" required>
+            <label for="TnC">I agree to the Terms & Conditions</label>
+        </div>
+
+        <button id="sbmt" type="submit">Sign Up</button>
+    </form>
+</body>
+</html>
