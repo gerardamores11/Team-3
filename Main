@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Register</h2>
-    <form action="/submit" method="post">
+    <form>
 
         Full Name:
         <input type="text" id="Fname" name="Fname" required><br>
