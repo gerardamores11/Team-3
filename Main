@@ -31,9 +31,9 @@
         <select id="Cntry" name="Cntry">
             <option value="">Select Country</option>
             <option value="PH">Philippines</option>
-            <option value="US">Japan</option>
-            <option value="MY">Finland</option>
-            <option value="JP">Korea</option>
+            <option value="JP">Japan</option>
+            <option value="FL">Finland</option>
+            <option value="KR">Korea</option>
         </select>
 
         <div class="chk">
