@@ -1,90 +1,64 @@
-   <style>
-        body {
-        font-family: Arial, sans-serif;
-        background-color: #000000;
-        margin: 0;
-        padding: 0;
-    }
-    .container {
-        width: 70%;
-        margin:0 auto;
-        background-color: rgb(19, 19, 19);
-        padding: 50px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        margin-top: 50px;
-        color: #fffefe;
-        max-width: 500px;
-       max-height: 800px;
-       
-    
-    }
-    .terms-container {
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #121212;
+        color: #e0e0e0;
         display: flex;
-        align-items: center;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        gap: 10px;
         justify-content: center;
-        color: #fff6f6;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
     }
-    
-    input[type="checkbox"] {
-        margin-right: 10px;
-        height: 30px;
-       width: 20px;
-       
-      
-
-    }  
-    
-
+    .box {
+        background-color: #1e1e1e;
+        padding: 30px;
+        border-radius: 12px;
+        width: 400px;
+    }
     h2 {
         text-align: center;
-    }
-    form {
-        display: flex;
-        flex-direction: column;
+        color: #f5f5f5;
+        margin-bottom: 20px;
     }
     label {
-        margin-top: 10px;
+        display: block;
+        margin-top: 15px;
+        font-weight: 600;
     }
-    input[type="text"], input[type="email"], input[type="password"], input[type="phone"] {
+    input, select {
+        width: 100%;
         padding: 10px;
         margin-top: 5px;
-        border-radius: 5px;
-        background-color: #2c2c2c;
-        height: 10px;
         border: none;
-   
-    
+        border-radius: 6px;
+        background-color: #2a2a2a;
+        color: #f5f5f5;
     }
-    input[type="county"], select {
-        padding: 10px;
-        margin-top: 5px;
-        border-radius: 5px;
-        background-color: #2c2b2b;
-        color: #fffefe;
+    input:focus, select:focus {
+        outline: 2px solid #ff5252;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 25px;
+        background-color: #ff5252;
         border: none;
-   
-    }
-
-
-    input[type="submit"] {
-        margin-top: 20px;
-        padding: 10px;
-        background-color: #f35134;
+        border-radius: 6px;
         color: white;
-        border: none;
-        border-radius: 5px;
+        font-size: 16px;
         cursor: pointer;
-        width: 70%;
-        margin: 0 auto;
     }
-    input[type="submit"]:hover {
-        background-color: #e9dede;
+    button:hover {
+        background-color: #ff7777;
     }
-    
-      
-
-     
-</style>
+    .chk {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+        font-weight: normal;
+    }
+    .chk input {
+        width: auto;
+        margin: 0;
+    }
