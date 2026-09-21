@@ -11,19 +11,23 @@ if ($conn->connect_error) {
 }
 
 $FN = $_POST["Fname"] ?? "";
+$LN = $_POST["Lname"] ?? "";
+$BD = $_POST["Bday"] ?? "";
+$GD = $_POST["Gndr"] ?? "";
 $EM = $_POST["EmAdd"] ?? "";
+$PHN = $_POST["PhNo"] ?? "";
+$AD = $_POST["Addrs"] ?? "";
 $UN = $_POST["Uname"] ?? "";
 $PW = $_POST["Pwd"] ?? "";
-$CPW = $_POST["CPwd"] ?? "";
-$PHN = $_POST["PhNo"] ?? "";
-$CNTY = $_POST["Cntry"] ?? "";
-$T = isset($_POST["TnC"]) ? 1 : 0;
+$RL = $_POST["Rl"] = "User";
 
-$sql = "INSERT INTO regform (full_name, email, username, password, phone, country) 
-        VALUES (?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO acc (Firstname, Lastname, Birthdate, Gender, Email, Phone, Address, Username, password, Role) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssss", $FN, $EM, $UN, $PW, $PHN, $CNTY);
+$stmt->bind_param("ssssssssss", $FN, $LN, $BD, $GD, $EM, $PHN, $AD, $UN, $PW, $RL);
 
 if ($stmt->execute()) {
     echo "<p style='color:green;'>Registration successful!</p>";
