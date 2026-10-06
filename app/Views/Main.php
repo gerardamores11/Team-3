@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/design.css">
+    <title>Registration Form</title>
+</head>
+<body>
+   
+    <form action="/register" method="post">
+    <h2>Register</h2>
+        First Name:
+        <input type="text" id="Fname" name="Fname" minlength="2" maxlength="50" required><br>
+
+        Last Name:
+        <input type="text" id="Lname" name="Lname" minlength="2" maxlength="50" required><br>
+
+        Middle Name:
+        <input type="text" id="Mname" name="Mname" minlength="2" maxlength="50" required><br>
+
+        Birthdate:
+        <input type="date" id="Bday" name="Bday" minlength="2" maxlength="50" required><br>
+
+        Gender
+        <select id="Gndr" name="Gender" required>
+            <option value="">Gender</option>
+            <option value="PH">Male</option>
+            <option value="JP">Female</option>
+        </select>
+
+        Email Address:
+        <input type="email" id="EmAdd" name="EmAdd" minlength="2" maxlength="50" required><br>
+
+        Phone Number:
+        <input type="tel" id="PhNo" maxlength="11" name="PhNo" required><br>
+
+        Address:
+        <input type="text" id="Addrs" name="Addrs" minlength="2" maxlength="50" required><br>
+
+        Username:
+        <input type="text" id="Uname" name="Uname" minlength="2" maxlength="50" required><br>
+
+        Password:
+        <input type="password" id="Pwd" name="Pwd" minlength="2" maxlength="50" required><br>
+        
+        Confirm Password:
+        <input type="password" id="CPwd" name="CPwd" minlength="2" maxlength="50" required><br>
+
+        Select Departments:
+        <select id="Dpts" name="Departments" required>
+            <option value="">--Select--</option>
+            <option value="Administration">Administration</option>
+            <option value="IT">IT</option>
+            <option value="Dispatch">Dispatch</option>
+            <option value="Accounting">Accounting</option>
+            <option value="HR">HR</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Sales">Sales</option>
+            <option value="Customer Service">Customer Service</option>
+        </select>
+
+        <div class="chk">
+            <input type="checkbox" id="TnC" name="TnC" required>
+            <label for="TnC">I agree to the Terms & Conditions</label>
+        </div>
+
+        <button id="sbmt" type="submit">Sign Up</button>
+    </form>
+</body>
+</html>
