@@ -1,0 +1,16 @@
+<?php
+namespace App\Controllers;
+use App\Models\{BookingModel,TicketModel,NotificationModel,UserModel};
+class Customer extends BaseController {
+ private function guard(){ return session()->get('logged_in') && session()->get('role')==='Customer'; }
+ public function dashboard(){ if(!$this->guard())return redirect()->to('/login'); return view('CustomerDashboard'); }
+ public function bookings(){ if(!$this->guard())return redirect()->to('/login'); $m=new BookingModel(); return view('customer/Bookings',['bookings'=>$m->where('customer_id',session('user_id'))->orderBy('id','DESC')->findAll()]); }
+ public function createBooking(){ if(!$this->guard())return redirect()->to('/login'); $rules=['service_type'=>'required|in_list[Consultation,Installation,Maintenance]','preferred_date'=>'required|valid_date[Y-m-d]','address'=>'required|max_length[255]']; if(!$this->validate($rules))return redirect()->back()->withInput()->with('errors',$this->validator->getErrors()); (new BookingModel())->insert(['customer_id'=>session('user_id'),'service_type'=>$this->request->getPost('service_type'),'preferred_date'=>$this->request->getPost('preferred_date'),'address'=>$this->request->getPost('address'),'notes'=>$this->request->getPost('notes'),'status'=>'Pending']); return redirect()->to('/customer/bookings')->with('message','Service request submitted.'); }
+ public function cancelBooking($id){ if(!$this->guard())return redirect()->to('/login'); $m=new BookingModel(); $b=$m->find($id); if($b && $b['customer_id']==session('user_id') && $b['status']==='Pending')$m->update($id,['status'=>'Cancelled']); return redirect()->to('/customer/bookings'); }
+ public function profile(){ if(!$this->guard())return redirect()->to('/login'); return view('customer/Profile',['user'=>(new UserModel())->find(session('user_id'))]); }
+ public function updateProfile(){ if(!$this->guard())return redirect()->to('/login'); (new UserModel())->update(session('user_id'),['FirstName'=>$this->request->getPost('FirstName'),'LastName'=>$this->request->getPost('LastName'),'PhoneNumber'=>$this->request->getPost('PhoneNumber'),'Address'=>$this->request->getPost('Address')]); return redirect()->to('/customer/profile')->with('message','Profile updated.'); }
+ public function history(){ if(!$this->guard())return redirect()->to('/login'); $m=new BookingModel(); return view('customer/History',['bookings'=>$m->where('customer_id',session('user_id'))->whereIn('status',['Completed','Cancelled','Declined'])->orderBy('id','DESC')->findAll()]); }
+ public function notifications(){ if(!$this->guard())return redirect()->to('/login'); return view('customer/Notifications',['items'=>(new NotificationModel())->where('user_id',session('user_id'))->orderBy('id','DESC')->findAll()]); }
+ public function support(){ if(!$this->guard())return redirect()->to('/login'); return view('customer/Support',['tickets'=>(new TicketModel())->where('customer_id',session('user_id'))->orderBy('id','DESC')->findAll()]); }
+ public function createTicket(){ if(!$this->guard())return redirect()->to('/login'); (new TicketModel())->insert(['customer_id'=>session('user_id'),'subject'=>$this->request->getPost('subject'),'message'=>$this->request->getPost('message'),'status'=>'Open']); return redirect()->to('/customer/support')->with('message','Support ticket submitted.'); }
+}
