@@ -8,18 +8,13 @@ class UserModel extends Model
 {
     protected $table = 'users';
     protected $primaryKey = 'id';
+    protected $returnType = 'array';
+    protected $useAutoIncrement = true;
+    protected $protectFields = true;
 
     protected $allowedFields = [
-        'FirstName',
-        'LastName',
-        'MiddleName',
-        'BirthDate',
-        'Gender',
-        'EmailAddress',
-        'PhoneNumber',
-        'Address',
-        'Username',
-        'Password',
-        'Departments'
+        'FirstName', 'LastName', 'MiddleName', 'BirthDate', 'Gender',
+        'EmailAddress', 'PhoneNumber', 'Address', 'Username', 'Password',
+        'Departments', 'Role', 'Status'
     ];
 }
